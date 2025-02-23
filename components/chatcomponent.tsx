@@ -7,7 +7,8 @@ import Messages from "./messages";
 import Markdown from "./markdown";
 import { fal } from "@fal-ai/client";
 
-const ELEVENLABS_API_KEY = 'ELEVEN_LABS_API_KEY';
+const ELEVENLABS_API_KEY = process.env.NEXT_PUBLIC_ELEVENLABS_KEY;
+const FAL_AI_KEY = process.env.NEXT_PUBLIC_FAL_API_KEY;
 const VOICE_ID = 'hGb0Exk8cp4vQEnwolxa';
 
 type Props = {
@@ -15,7 +16,7 @@ type Props = {
 };
 
 fal.config({
-  credentials: "FALAI_API_KEY",
+  credentials: FAL_AI_KEY,
 });
 
 const ChatComponent = ({ reportData }: Props) => {

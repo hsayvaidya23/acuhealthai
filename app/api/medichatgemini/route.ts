@@ -9,12 +9,12 @@ export const maxDuration = 60;
 // export const runtime = 'edge';
 
 const pinecone = new Pinecone({
-    apiKey: process.env.PINECONE_API_KEY ?? "",
+    apiKey: process.env.NEXT_PUBLIC_PINECONE_API_KEY ?? "",
 });
 
 const google = createGoogleGenerativeAI({
     baseURL: 'https://generativelanguage.googleapis.com/v1beta',
-    apiKey: process.env.GEMINI_API_KEY
+    apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY
 });
 
 // gemini-1.5-pro-latest
