@@ -1,4 +1,4 @@
-# AI-Medical Chatbot
+# AcuHealth AI
 
 An interactive Next.js application that allows users to upload a medical report, extract its details, and chat with an AI-powered assistant. The app integrates several APIs—including Google Generative AI for content generation, Pinecone as a vector database for storing vector embeddings of the RAG system, and ElevenLabs and Fal.ai to provide a rich, conversational interface for medical insights.
 
