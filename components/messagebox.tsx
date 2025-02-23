@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, CardContent, CardFooter } from './ui/card';
+import React, { useState } from 'react';
+import { Card, CardContent } from './ui/card';
 import Markdown from './markdown';
 import { Volume2, Loader2 } from 'lucide-react';
 
@@ -11,17 +11,28 @@ type Props = {
 };
 
 const MessageBox = ({ role, content, generateSpeech, playingMessage }: Props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleVolumeClick = async () => {
+    setIsLoading(true);
+    await generateSpeech(content);
+    setIsLoading(false);
+  };
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-6 text-sm flex items-center justify-between">
         <Markdown text={content} />
         {role !== "user" && (
           <button
-            onClick={() => generateSpeech(content)}
-            className="ml-2 p-2 bg-gray-200 rounded-full hover:bg-gray-300"
-            disabled={playingMessage === content}
+            onClick={handleVolumeClick}
+            className="ml-2 p-2 bg-green-100 rounded-full hover:bg-green-200 transition-colors"
+            disabled={isLoading || playingMessage === content}
           >
-            {playingMessage === content ? <Loader2 className="animate-spin size-5" /> : <Volume2 className="size-5" />}
+            {isLoading || playingMessage === content ? (
+              <Loader2 className="animate-spin size-5 text-green-600" />
+            ) : (
+              <Volume2 className="size-5 text-green-600" />
+            )}
           </button>
         )}
       </CardContent>

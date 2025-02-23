@@ -1,6 +1,6 @@
 import { Github, Twitter, Linkedin, Link as LinkIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"; // Import shadcn/ui Card components
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"; 
 
 interface SocialLink {
   name: string;
