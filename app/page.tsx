@@ -32,8 +32,10 @@ const Home = () => {
     <div className="grid h-screen w-full">
       <div className="flex flex-col">
         <header className="sticky top-0 z-10 flex h-[57px] bg-background items-center gap-1 border-b px-4">
-          <h1 className="text-xl font-semibold text-[#D90013]">
-            <span className="flex flex-row">Chatbot</span>
+          <h1 className="text-3xl leading-7 font-bold">
+            <span className="flex flex-row bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent animate-gradient">
+              AcuHealth_AI
+            </span>
           </h1>
           <div className="w-full flex flex-row justify-end gap-2">
             <ModeToggle />
