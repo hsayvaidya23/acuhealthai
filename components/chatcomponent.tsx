@@ -25,6 +25,7 @@ const ChatComponent = ({ reportData }: Props) => {
   const [detectedLanguage, setDetectedLanguage] = useState<string | null>(null);
   const [playingMessage, setPlayingMessage] = useState<string | null>(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [isProcessingRecording, setIsProcessingRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<Blob[]>([]);
 
@@ -59,6 +60,7 @@ const ChatComponent = ({ reportData }: Props) => {
   // 🛑 Stop recording
   const stopRecording = () => {
     setIsRecording(false);
+    setIsProcessingRecording(true);
     if (mediaRecorderRef.current) {
       mediaRecorderRef.current.stop();
     }
@@ -82,6 +84,8 @@ const ChatComponent = ({ reportData }: Props) => {
       handleInputChange({ target: { value: transcript } } as React.ChangeEvent<HTMLTextAreaElement>);
     } catch (error) {
       console.error("Error transcribing voice:", error);
+    } finally {
+      setIsProcessingRecording(false);
     }
   };
 
@@ -123,12 +127,17 @@ const ChatComponent = ({ reportData }: Props) => {
 
   return (
     <div className="h-full bg-muted/50 relative flex flex-col min-h-[50vh] rounded-xl p-4 gap-4">
-      
+
+      {(isLoading || isProcessingRecording) && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+      )}
 
       <Messages messages={messages} isLoading={isLoading} generateSpeech={generateSpeech} playingMessage={playingMessage} />
 
       <form
-        className="relative overflow-hidden rounded-lg border bg-background"
+        className="relative overflow-hidden rounded-lg border bg-background flex flex-col gap-2 p-4"
         onSubmit={(event) => {
           event.preventDefault();
           handleSubmit(event, {
@@ -140,20 +149,26 @@ const ChatComponent = ({ reportData }: Props) => {
           value={input}
           onChange={handleInputChange}
           placeholder="Type your query here..."
-          className="min-h-12 resize-none border-0 p-3 shadow-none focus-visible:ring-0"
+          className="min-h-24 resize-none border-0 p-3 shadow-none focus-visible:ring-0 bg-transparent w-full"
         />
-        <div className="flex items-center p-3 pt-0">
+        <div className="flex items-center justify-between">
+          <Button
+            onClick={isRecording ? stopRecording : startRecording}
+            className={`flex items-center gap-2 ${isRecording ? "bg-red-500" : "bg-blue-500"}`}
+          >
+            <Mic className="size-5" />
+            {isRecording ? "Stop Recording" : "Record Voice"}
+          </Button>
           <Button disabled={isLoading} type="submit" size="sm" className="ml-auto">
-            {isLoading ? "Analysing..." : "3. Ask"}
+            {isLoading ? "Analysing..." : "Ask"}
             {isLoading ? <Loader2 className="size-3.5 animate-spin" /> : <CornerDownLeft className="size-3.5" />}
           </Button>
         </div>
-        <div className="flex items-center p-3 pt-0">
-          <Button onClick={isRecording ? stopRecording : startRecording} className={`bg-blue-500 text-white ${isRecording ? "bg-red-500" : ""}`}>
-            <Mic className="size-5" /> {isRecording ? "Stop Recording" : "Record Voice"}
-          </Button>
-          {detectedLanguage && <span>🗣️ Detected: {detectedLanguage.toUpperCase()}</span>}
-        </div>
+        {detectedLanguage && (
+          <div className="text-sm text-muted-foreground">
+            Detected Language: {detectedLanguage.toUpperCase()}
+          </div>
+        )}
       </form>
     </div>
   );

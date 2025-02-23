@@ -33,7 +33,7 @@ const Home = () => {
       <div className="flex flex-col">
         <header className="sticky top-0 z-10 flex h-[57px] bg-background items-center gap-1 border-b px-4">
           <h1 className="text-xl font-semibold text-[#D90013]">
-            <span className="flex flex-row">Chatbot</span>
+            <span className="flex flex-row">AcuHealth_AI</span>
           </h1>
           <div className="w-full flex flex-row justify-end gap-2">
             <ModeToggle />
