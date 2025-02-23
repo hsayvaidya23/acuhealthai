@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import SocialMediaLinks from './social-links';
+import Credits from './credits';
 import { Toaster, toast } from 'sonner';
 
 type Props = {
@@ -140,8 +140,8 @@ const ReportComponent = ({ onReportConfirmation }: Props) => {
           2. Looks Good
         </Button>
         <div className="flex flex-row items-center justify-center gap-2 p-4">
-          <Label>Share your thoughts </Label>
-          <SocialMediaLinks />
+          {/* <Label>Share your thoughts </Label> */}
+              <Credits />
         </div>
       </fieldset>
     </div>
@@ -149,3 +149,5 @@ const ReportComponent = ({ onReportConfirmation }: Props) => {
 };
 
 export default ReportComponent;
+
+
