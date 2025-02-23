@@ -96,6 +96,7 @@ const ChatComponent = ({ reportData }: Props) => {
 
       const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
         method: "POST",
+        //@ts-ignore
         headers: {
           "Content-Type": "application/json",
           "xi-api-key": ELEVENLABS_API_KEY,

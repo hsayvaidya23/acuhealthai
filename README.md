@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Medical Chatbot
 
-## Getting Started
+An interactive Next.js application that allows users to upload a medical report, extract its details, and chat with an AI-powered assistant. The app integrates several APIs—including Google Generative AI for content generation, Pinecone as a vector database for storing vector embeddings of the RAG system, and ElevenLabs and Fal.ai to provide a rich, conversational interface for medical insights.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Features
+- Usage
+- APIs
+- Technologies
+- Contributers
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Upload and Process Reports:** Upload clinical reports to extract key medical findings.
+- **Interactive Chat Interface:** Chat with an AI assistant powered by Gemini models.
+- **Voice Interaction:** Record user's queries and convert AI responses to speech using ElevenLabs and Fal AI integration.
+- **Theme and UI Components:** Toggle between light and dark themes, along with a rich set of UI components.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/perfect7613/acuhealthai.git
+    cd elevenlabs-hackethon
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open your browser and navigate to `http://localhost:3000`.
 
-## Deploy on Vercel
+## APIs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Google Generative AI:** Used for summarizing the medical reports and user queries.
+- **Pinecone:** Utilized as a Vector Database for storing the vector embeddings for the RAG system.
+- **ElevenLabs:** Converts text responses from the AI assistant into speech.
+- **Fal AI:** Have utilized the fal-ai/whisper for user's speech transcription and language detection .
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technologies
+
+- **Next.js:** Framework for building the application.
+- **React:** Library for building user interfaces.
+- **Tailwind CSS:** Utility-first CSS framework for styling.
+- **TypeScript:** Superset of JavaScript for type safety.
+- **Node.js:** JavaScript runtime for server-side code.
+
+## Contributors
+
+- **Amey Muke:** Backend integration and processing, and some parts of the frontend.
+- **Yash Vaidya:** Frontend development and optimization.
