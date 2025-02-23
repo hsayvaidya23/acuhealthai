@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY!);
@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
 
     console.log(generatedContent);
     const textResponse = generatedContent.response.candidates![0].content.parts[0].text;
-    return new Response(textResponse, { status: 200 });
+    return NextResponse.json(textResponse, { status: 200 });
   } catch (error) {
     console.error('Error processing request:', error);
-    return new Response('Internal Server Error', { status: 500 });
+    return NextResponse.json('Internal Server Error', { status: 500 });
   }
 }
 
