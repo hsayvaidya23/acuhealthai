@@ -9,7 +9,7 @@ type Props = {
   playingMessage: string | null;
 }
 
-const Messages = ({ messages, isLoading, generateSpeech, playingMessage }: Props) => {
+const Messages = ({ messages, generateSpeech, playingMessage }: Props) => {
   return (
     <div className='flex flex-col gap-4'>
       {messages.map((m, index)=>{

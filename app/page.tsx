@@ -3,16 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import {
-  Bot,
-  CircleAlert,
-  CircleAlertIcon,
-  DoorClosedIcon,
-  FileCheck2,
-  LucideCircleAlert,
-  OctagonAlert,
-  Plus,
   Settings,
-  TriangleAlert,
 } from "lucide-react";
 import { ModeToggle } from "@/components/modetoggle";
 import { useState } from "react";

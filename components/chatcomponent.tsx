@@ -2,9 +2,8 @@
 import React, { useState, useRef } from "react";
 import { useChat } from "ai/react";
 import { Button } from "./ui/button";
-import { Mic, CornerDownLeft, Loader2, Volume2 } from "lucide-react";
+import { Mic, CornerDownLeft, Loader2} from "lucide-react";
 import Messages from "./messages";
-import Markdown from "./markdown";
 import { fal } from "@fal-ai/client";
 
 const ELEVENLABS_API_KEY = process.env.NEXT_PUBLIC_ELEVENLABS_KEY;

@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import Credits from './credits';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 type Props = {
   onReportConfirmation: (data: string) => void;
