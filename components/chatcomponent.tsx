@@ -69,7 +69,6 @@ const ChatComponent = ({ reportData }: Props) => {
   const sendAudioToFalAI = async (audioBlob: Blob) => {
     try {
       const falUrl = await fal.storage.upload(audioBlob);
-      console.log("Uploaded Audio URL:", falUrl);
 
       const result = await fal.subscribe("fal-ai/whisper", {
         input: { audio_url: falUrl, task: "transcribe" },
