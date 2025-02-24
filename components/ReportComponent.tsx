@@ -36,7 +36,6 @@ const ReportComponent = ({ onReportConfirmation }: Props) => {
       reader.onloadend = () => {
         const base64String = reader.result as string;
         setBase64Data(base64String);
-        console.log(base64String);
       };
 
       if (isValidImage) {
@@ -101,7 +100,6 @@ const ReportComponent = ({ onReportConfirmation }: Props) => {
 
     if (response.ok) {
       const reportText = await response.text();
-      console.log(reportText);
       setReportData(reportText);
     } else {
       toast.error('Failed to extract report details.');
