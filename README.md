@@ -43,6 +43,7 @@ An interactive Next.js application that allows users to upload a medical report,
 - **Pinecone:** Utilized as a Vector Database for storing the vector embeddings for the RAG system.
 - **ElevenLabs:** Converts text responses from the AI assistant into speech.
 - **Fal AI:** Have utilized the fal-ai/whisper for user's speech transcription and language detection .
+- **HuggingFace**:The mxbai-embed-large-v1 model from Hugging Face generates efficient English sentence embeddings, supporting Matryoshka Representation Learning and binary quantization to reduce memory usage and costs. These embeddings are stored in Pinecone for effective retrieval in the RAG system
 
 ## Technologies
 
