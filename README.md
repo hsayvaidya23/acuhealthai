@@ -22,7 +22,7 @@ An interactive Next.js application that allows users to upload a medical report,
 1. Clone the repository:
     ```bash
     git clone https://github.com/perfect7613/acuhealthai.git
-    cd elevenlabs-hackethon
+    cd acuhealthai
     ```
 
 2. Install dependencies:
